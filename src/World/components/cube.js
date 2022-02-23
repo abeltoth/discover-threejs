@@ -1,4 +1,20 @@
-import { BoxBufferGeometry, Mesh, MeshStandardMaterial, MathUtils } from 'https://cdn.skypack.dev/three';
+import { BoxBufferGeometry, Mesh, MeshStandardMaterial, MathUtils, TextureLoader } from 'https://cdn.skypack.dev/three';
+
+function createMaterial() {
+  // create a texture loader.
+  const textureLoader = new TextureLoader();
+
+  // load a texture
+  const texture = textureLoader.load('/assets/textures/uv-test-bw.png');
+
+  // create a "standard" material using
+  // the texture we just loaded as a color map
+  const material = new MeshStandardMaterial({
+    map: texture,
+  });
+
+  return material;
+}
 
 function createCube() {
   // create a geometry
@@ -6,7 +22,7 @@ function createCube() {
 
   // Switch the old "basic" material to
   // a physically correct "standard" material
-  const material = new MeshStandardMaterial({ color: 'purple' });
+  const material = createMaterial();
 
   // create a Mesh containing the geometry and material
   const cube = new Mesh(geometry, material);
