@@ -1,9 +1,14 @@
-import { Clock } from 'https://cdn.skypack.dev/three';
+import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
 const clock = new Clock();
 
 class Loop {
-  constructor(camera, scene, renderer) {
+  private camera: PerspectiveCamera;
+  private scene: Scene;
+  private renderer: WebGLRenderer;
+  public updatables: any[];
+
+  constructor(camera: PerspectiveCamera, scene: Scene, renderer: WebGLRenderer) {
     this.camera = camera;
     this.scene = scene;
     this.renderer = renderer;

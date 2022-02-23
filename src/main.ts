@@ -1,11 +1,12 @@
-import { World } from './World/World.js';
+import './style.css';
+import { World } from './World/World';
 
 function main() {
   // Get a reference to the container element
-  const container = document.querySelector('#scene-container');
+  const container: HTMLElement | null = document.querySelector('#scene-container');
 
   // 1. Create an instance of the World app
-  const world = new World(container);
+  const world = new World(container!);
 
   // produce a single frame (render on demand)
   // world.render();

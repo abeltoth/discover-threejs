@@ -1,4 +1,5 @@
-import { BoxBufferGeometry, Mesh, MeshStandardMaterial, MathUtils, TextureLoader } from 'https://cdn.skypack.dev/three';
+import { BoxBufferGeometry, MathUtils, Mesh, MeshStandardMaterial, TextureLoader } from 'three';
+import { InterActiveCube } from '../model/model';
 
 function createMaterial() {
   // create a texture loader.
@@ -25,14 +26,14 @@ function createCube() {
   const material = createMaterial();
 
   // create a Mesh containing the geometry and material
-  const cube = new Mesh(geometry, material);
+  const cube: InterActiveCube = new Mesh(geometry, material);
 
   cube.rotation.set(-0.5, -0.1, 0.8);
 
   const radiansPerSecond = MathUtils.degToRad(30);
 
   // this method will be called once per frame
-  cube.tick = (delta) => {
+  cube.tick = (delta: number) => {
     // increase the cube's rotation each frame
     cube.rotation.z += radiansPerSecond * delta;
     cube.rotation.x += radiansPerSecond * delta;
