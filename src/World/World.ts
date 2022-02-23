@@ -30,8 +30,10 @@ class World {
     const cube = createCube();
     const light = createLights();
 
+    this.loop.updatables.push(controls);
+
     // disabled mesh rotation
-    // loop.updatables.push(cube);
+    // this.loop.updatables.push(cube);
 
     this.scene.add(cube, light);
 
