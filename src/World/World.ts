@@ -1,5 +1,4 @@
 import { createCamera } from './components/camera';
-import { createCube } from './components/cube';
 import { createLights } from './components/lights';
 import { createScene } from './components/scene';
 
@@ -8,6 +7,7 @@ import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
 import { Loop } from './systems/Loop';
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { createMeshGroup } from './components/meshGroup';
 
 // These variables are module-scoped: we cannot access them
 // from outside the module
@@ -27,15 +27,12 @@ class World {
 
     const controls = createControls(this.camera, this.renderer.domElement);
 
-    const cube = createCube();
     const { ambientLight, mainLight } = createLights();
 
-    this.loop.updatables.push(controls);
+    const meshGroup = createMeshGroup();
 
-    // disabled mesh rotation
-    // this.loop.updatables.push(cube);
-
-    this.scene.add(ambientLight, mainLight, cube);
+    this.loop.updatables.push(controls, meshGroup);
+    this.scene.add(ambientLight, mainLight, meshGroup);
 
     const resizer = new Resizer(container, this.camera, this.renderer);
   }
