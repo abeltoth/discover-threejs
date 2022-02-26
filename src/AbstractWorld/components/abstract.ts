@@ -40,6 +40,11 @@ function createMeshGroup() {
     points.push(new Vector3(-i, 0, 0));
     points.push(new Vector3(0, 0, -1 + i));
     points.push(new Vector3(i, 0, 0));
+    points.push(new Vector3(0, 0, 1 - i));
+    points.push(new Vector3(0, i, 0));
+    points.push(new Vector3(0, 0, -1 + i));
+    points.push(new Vector3(0, -i, 0));
+    points.push(new Vector3(0, 0, 1 - i));
 
     const geometry = new BufferGeometry().setFromPoints(points);
     const line = new Line(geometry, material);
