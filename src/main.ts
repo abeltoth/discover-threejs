@@ -1,4 +1,4 @@
-import { World } from './BirdWorld/World';
+import { World } from './AbstractWorld/World';
 import './style.css';
 
 async function main() {
@@ -9,7 +9,7 @@ async function main() {
   const world = new World(container!);
 
   // complete async tasks
-  await world.init();
+  // await world.init();
 
   // produce a single frame (render on demand)
   // world.render();
