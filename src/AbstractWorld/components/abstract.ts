@@ -29,42 +29,21 @@ function createMeshGroup() {
 
   group.add(yAxis, xAxis, zAxis);
 
-  for (let i = 0; i < 0.9; i += 0.1) {
-    // 1
-    const points1 = [];
-    points1.push(new Vector3(i + 0.1, 0, 0));
-    points1.push(new Vector3(0, 1 - i, 0));
+  for (let i = 0; i < 1; i += 0.1) {
+    const points = [];
+    points.push(new Vector3(i, 0, 0));
+    points.push(new Vector3(0, 1 - i, 0));
+    points.push(new Vector3(-i, 0, 0));
+    points.push(new Vector3(0, -1 + i, 0));
+    points.push(new Vector3(i, 0, 0));
+    points.push(new Vector3(0, 0, 1 - i));
+    points.push(new Vector3(-i, 0, 0));
+    points.push(new Vector3(0, 0, -1 + i));
+    points.push(new Vector3(i, 0, 0));
 
-    const geometry1 = new BufferGeometry().setFromPoints(points1);
-    const line1 = new Line(geometry1, material);
-    group.add(line1);
-
-    // 2
-    const points2 = [];
-    points2.push(new Vector3(-i - 0.1, 0, 0));
-    points2.push(new Vector3(0, 1 - i, 0));
-
-    const geometry2 = new BufferGeometry().setFromPoints(points2);
-    const line2 = new Line(geometry2, material);
-    group.add(line2);
-
-    // 3
-    const points3 = [];
-    points3.push(new Vector3(i + 0.1, 0, 0));
-    points3.push(new Vector3(0, -1 + i, 0));
-
-    const geometry3 = new BufferGeometry().setFromPoints(points3);
-    const line3 = new Line(geometry3, material);
-    group.add(line3);
-
-    // 4
-    const points4 = [];
-    points4.push(new Vector3(-i - 0.1, 0, 0));
-    points4.push(new Vector3(0, -1 + i, 0));
-
-    const geometry4 = new BufferGeometry().setFromPoints(points4);
-    const line4 = new Line(geometry4, material);
-    group.add(line4);
+    const geometry = new BufferGeometry().setFromPoints(points);
+    const line = new Line(geometry, material);
+    group.add(line);
   }
 
   return group;
