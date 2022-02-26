@@ -1,5 +1,5 @@
-import { World } from './SphereWorld/World';
 import './style.css';
+import { World } from './TrainWorld/World';
 
 function main() {
   // Get a reference to the container element
