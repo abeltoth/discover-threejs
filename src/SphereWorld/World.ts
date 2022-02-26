@@ -9,9 +9,6 @@ import { Loop } from './systems/Loop';
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import { createMeshGroup } from './components/meshGroup';
 
-// These variables are module-scoped: we cannot access them
-// from outside the module
-
 class World {
   public camera: PerspectiveCamera;
   public scene: Scene;
@@ -26,9 +23,7 @@ class World {
     container.append(this.renderer.domElement);
 
     const controls = createControls(this.camera, this.renderer.domElement);
-
     const { ambientLight, mainLight } = createLights();
-
     const meshGroup = createMeshGroup();
 
     this.loop.updatables.push(controls, meshGroup);
